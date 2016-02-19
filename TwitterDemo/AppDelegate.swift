@@ -50,10 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("I got the access token!")
             
             twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                let user = response as! NSDictionary
-                print("user: \(user)")
+                let userDictionary = response as! NSDictionary
+                //print("user: \(user)")
                 
-                print("name: \(user["name"])")
+                let user = User(dictionary: userDictionary)
+                
+                print("name: \(user.name)")
+                print("screenname: \(user.screenname)")
+                print("profile url: \(user.profileUrl)")
+                print("description: \(user.tagline)")
+                
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 
             })
