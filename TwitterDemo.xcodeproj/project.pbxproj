@@ -12,6 +12,8 @@
 		6C0E7A4E1C767F1400C17209 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0E7A4C1C767F1400C17209 /* Main.storyboard */; };
 		6C0E7A501C767F1400C17209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0E7A4F1C767F1400C17209 /* Assets.xcassets */; };
 		6C0E7A531C767F1400C17209 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C0E7A511C767F1400C17209 /* LaunchScreen.storyboard */; };
+		6C0E7A5C1C76825800C17209 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E7A5B1C76825800C17209 /* LoginViewController.swift */; };
+		6C8BA9511C76A36500B57EC7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8BA9501C76A36500B57EC7 /* User.swift */; };
 		72587F3AF9621D4CD93C001F /* Pods_TwitterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C8CC87C2097590BB033960 /* Pods_TwitterDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,8 @@
 		6C0E7A4F1C767F1400C17209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C0E7A521C767F1400C17209 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C0E7A541C767F1400C17209 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C0E7A5B1C76825800C17209 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6C8BA9501C76A36500B57EC7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C4C8CC87C2097590BB033960 /* Pods_TwitterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDBFB984135421ADFE677314 /* Pods-TwitterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterDemo/Pods-TwitterDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,14 +74,32 @@
 		6C0E7A471C767F1400C17209 /* TwitterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6C8BA94F1C76A2E300B57EC7 /* Models */,
+				6C0E7A5A1C76820D00C17209 /* ViewControllers */,
 				6C0E7A481C767F1400C17209 /* AppDelegate.swift */,
-				6C0E7A4A1C767F1400C17209 /* ViewController.swift */,
 				6C0E7A4C1C767F1400C17209 /* Main.storyboard */,
 				6C0E7A4F1C767F1400C17209 /* Assets.xcassets */,
 				6C0E7A511C767F1400C17209 /* LaunchScreen.storyboard */,
 				6C0E7A541C767F1400C17209 /* Info.plist */,
 			);
 			path = TwitterDemo;
+			sourceTree = "<group>";
+		};
+		6C0E7A5A1C76820D00C17209 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6C0E7A4A1C767F1400C17209 /* ViewController.swift */,
+				6C0E7A5B1C76825800C17209 /* LoginViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6C8BA94F1C76A2E300B57EC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C8BA9501C76A36500B57EC7 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A25F8BB6C35B94AA42309536 /* Frameworks */ = {
@@ -210,6 +232,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C8BA9511C76A36500B57EC7 /* User.swift in Sources */,
+				6C0E7A5C1C76825800C17209 /* LoginViewController.swift in Sources */,
 				6C0E7A4B1C767F1400C17209 /* ViewController.swift in Sources */,
 				6C0E7A491C767F1400C17209 /* AppDelegate.swift in Sources */,
 			);
