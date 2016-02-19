@@ -42,43 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        print(url.description)
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
         
-    
-        TwitterClient.sharedInstance.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
-            print("I got the access token!")
-            
-            TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                let userDictionary = response as! NSDictionary
-                //print("user: \(user)")
-                
-                let user = User(dictionary: userDictionary)
-                
-                print("name: \(user.name)")
-                print("screenname: \(user.screenname)")
-                print("profile url: \(user.profileUrl)")
-                print("description: \(user.tagline)")
-                
-            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                
-            })
-            
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-                let dictionaries = response as! [NSDictionary]
-                
-                let tweets = Tweet.tweetsWithArray(dictionaries)
-                
-                for tweet in tweets{
-                    print("\(tweet.text!)")
-                }
-                }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                    
-            })
-            
-        }) { (error: NSError!) -> Void in
-                print("error: \(error.localizedDescription)")
-        }
+        
+        TwitterClient.sharedInstance.handleOpenUrl(url)
+        
+        
+        
         
         return true
     }
