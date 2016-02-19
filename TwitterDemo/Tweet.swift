@@ -23,8 +23,25 @@ class Tweet: NSObject {
         
         let timestampString = dictionary["created_at"] as? String
         
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        
+        if let timestampString = timestampString{
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+            timestamp = formatter.dateFromString(timestampString)
+        }
     }
+    class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet]{
+        var tweets = [Tweet]()
+        
+        for dictionary in dictionaries{
+            let tweet = Tweet(dictionary: dictionary)
+            
+            tweets.append(tweet)
+        }
+        
+        
+        return tweets
+    }
+        
 
 }
