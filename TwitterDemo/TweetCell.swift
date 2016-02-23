@@ -36,7 +36,7 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet!{
         didSet{
-            nameLabel.text = tweet.user!.name as? String
+            nameLabel.text = tweet.user!.name 
             thumbImageView.setImageWithURL(NSURL(string: tweet.user!.profileUrlString!)!)
             userNameLabel.text = "@\(tweet.user!.screenname!)"
             tweetTextLabel.text = tweet.text as? String
