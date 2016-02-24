@@ -12,6 +12,14 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var thumbImageView: UIImageView!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var tweetLabel: UILabel!
+    
+    
+    
     var tweet: Tweet!
     
     
@@ -20,6 +28,10 @@ class TweetDetailViewController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = tweet?.user!.name
+        thumbImageView.setImageWithURL(NSURL(string: tweet.user!.profileUrlString!)!)
+        tweetLabel.text = tweet.text as! String
+        
+        
       
 
         // Do any additional setup after loading the view.
