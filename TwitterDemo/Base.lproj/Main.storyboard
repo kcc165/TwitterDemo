@@ -63,13 +63,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3b-fw-iLO">
-                                                    <rect key="frame" x="8" y="2" width="65" height="65"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <segue destination="OCd-4E-d8a" kind="show" identifier="UserProfileView" id="TM5-lj-9Dp"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxD-Ew-goB">
                                                     <rect key="frame" x="141" y="5" width="76" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -129,6 +122,13 @@
                                                         <action selector="onFavorite:" destination="JXa-2C-Zmm" eventType="touchUpInside" id="a2k-j2-TQK"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLH-XF-1ew">
+                                                    <rect key="frame" x="8" y="2" width="65" height="65"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <segue destination="OCd-4E-d8a" kind="show" identifier="ProfileView" id="cbL-sy-Z0H"/>
+                                                    </connections>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JB1-Hv-2zf">
                                                     <rect key="frame" x="8" y="2" width="65" height="65"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -165,22 +165,18 @@
                                                 <constraint firstItem="TxD-Ew-goB" firstAttribute="centerY" secondItem="LJl-vA-Itv" secondAttribute="centerY" constant="2" id="Tls-Cq-Kv2"/>
                                                 <constraint firstItem="LJl-vA-Itv" firstAttribute="leading" secondItem="JB1-Hv-2zf" secondAttribute="trailing" constant="13" id="WNM-wH-DFw"/>
                                                 <constraint firstAttribute="trailing" secondItem="TxD-Ew-goB" secondAttribute="trailing" constant="103" id="Xr3-Wp-PQJ"/>
-                                                <constraint firstItem="JB1-Hv-2zf" firstAttribute="trailing" secondItem="k3b-fw-iLO" secondAttribute="trailing" id="aVl-ym-EUL"/>
                                                 <constraint firstItem="JB1-Hv-2zf" firstAttribute="leading" secondItem="8qo-pm-lcO" secondAttribute="leadingMargin" id="co1-aO-PlW"/>
                                                 <constraint firstAttribute="bottom" secondItem="H0a-XU-QWl" secondAttribute="bottom" constant="32" id="g3U-9S-oZ6"/>
                                                 <constraint firstItem="n7n-AF-7Uq" firstAttribute="leading" secondItem="1q7-0V-4SC" secondAttribute="trailing" constant="1" id="g6e-ux-Mls"/>
                                                 <constraint firstItem="H0a-XU-QWl" firstAttribute="baseline" secondItem="8da-8t-R3q" secondAttribute="baseline" constant="1" id="jUN-Ik-f4W"/>
-                                                <constraint firstItem="JB1-Hv-2zf" firstAttribute="leading" secondItem="k3b-fw-iLO" secondAttribute="leading" id="kPn-3y-Buo"/>
                                                 <constraint firstItem="po0-eY-DO3" firstAttribute="leading" secondItem="JB1-Hv-2zf" secondAttribute="trailing" constant="13" id="kUz-7f-mQL"/>
                                                 <constraint firstItem="8da-8t-R3q" firstAttribute="bottom" secondItem="H0a-XU-QWl" secondAttribute="bottom" constant="-7" id="l3Y-1N-zTA"/>
                                                 <constraint firstAttribute="trailing" secondItem="po0-eY-DO3" secondAttribute="trailing" constant="24" id="nX0-Pk-vde"/>
-                                                <constraint firstItem="JB1-Hv-2zf" firstAttribute="top" secondItem="k3b-fw-iLO" secondAttribute="top" id="ob1-A5-OeB"/>
                                                 <constraint firstAttribute="bottom" secondItem="8da-8t-R3q" secondAttribute="bottom" constant="37" id="qA9-Eq-aK8"/>
                                                 <constraint firstItem="n7n-AF-7Uq" firstAttribute="bottom" secondItem="H0a-XU-QWl" secondAttribute="bottom" id="qwC-oe-LKF"/>
                                                 <constraint firstItem="po0-eY-DO3" firstAttribute="top" secondItem="TxD-Ew-goB" secondAttribute="bottom" constant="15" id="uja-QL-KK3"/>
                                                 <constraint firstItem="1q7-0V-4SC" firstAttribute="leading" secondItem="8da-8t-R3q" secondAttribute="trailing" constant="68" id="vfb-bg-o3n"/>
                                                 <constraint firstAttribute="bottom" secondItem="2bm-kS-W5V" secondAttribute="bottom" constant="13" id="vkf-bY-5zs"/>
-                                                <constraint firstItem="JB1-Hv-2zf" firstAttribute="bottom" secondItem="k3b-fw-iLO" secondAttribute="bottom" id="xFe-f0-w9f"/>
                                                 <constraint firstItem="H0a-XU-QWl" firstAttribute="centerY" secondItem="8da-8t-R3q" secondAttribute="centerY" id="yKG-UM-wRG"/>
                                             </constraints>
                                             <variation key="default">
@@ -291,36 +287,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-kD-dmf">
-                                <rect key="frame" x="128" y="216" width="65" height="65"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="Weh-OX-6oD"/>
-                                    <constraint firstAttribute="height" constant="65" id="mku-BX-i22"/>
-                                    <constraint firstAttribute="width" constant="65" id="ruj-XL-4ox"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Weh-OX-6oD"/>
-                                    </mask>
-                                </variation>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-ka-vMV">
+                                <rect key="frame" x="128" y="132" width="65" height="65"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzh-VS-srM">
-                                <rect key="frame" x="139" y="167" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="nameLabel" destination="gzh-VS-srM" id="9Lr-lC-shJ"/>
-                        <outlet property="pImageView" destination="fsu-kD-dmf" id="aOS-B3-oQ4"/>
-                        <outlet property="pNameLabel" destination="gzh-VS-srM" id="41H-Pp-kcH"/>
+                        <outlet property="pThumbImageView" destination="Fth-ka-vMV" id="Lae-Sj-uYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUY-Ho-P2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
