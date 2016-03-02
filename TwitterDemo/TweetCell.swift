@@ -34,6 +34,7 @@ class TweetCell: UITableViewCell {
     var retweetStatus: Bool = false
     
     
+    var tweetID: Int = 0
     var tweet: Tweet!{
         didSet{
             nameLabel.text = tweet.user!.name 
@@ -43,6 +44,7 @@ class TweetCell: UITableViewCell {
             timeStampLabel.text = "\(tweet.timestamp!)"
             retweetCountLabel.text = "\(tweet.retweetCount!)"
             favoriteCountLabel.text = "\(tweet.favoritesCount!)"
+            tweetID = (tweet.tweetID as? Int)!
             
             
             
@@ -67,35 +69,39 @@ class TweetCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func onRetweet(sender: AnyObject) {
-        print("Retweet button clicked")
-        print("Retweet Status: \(retweetStatus)")
-        if retweetStatus == false{
-            retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
-            retweetStatus = true
-            self.retweetButton.selected = true
-        }
-        else {
+        TwitterClient.sharedInstance.retweet(Int(tweetID), params: nil, completion: {(error) -> () in
             
-            retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
-            retweetStatus = false
-            self.retweetButton.selected = false
-        }
+            if (self.retweetButton.currentImage == UIImage(named: "retweet-action") ) {
+                self.retweetCountLabel.text = String(self.tweet.retweetCount! + 1)
+                self.retweetButton.setImage(UIImage(named: "retweet-action-on"), forState: .Normal)
+                
+            }else{
+                
+                self.retweetCountLabel.text = String(self.tweet.retweetCount!)
+                self.retweetButton.setImage(UIImage(named: "retweet-action"), forState: .Normal )
+            }
+            
+            
+            
+            
+        })
+    
     }
     @IBAction func onFavorite(sender: AnyObject) {
-        print("Favorite button clicked")
-        print("Favorite Status: \(favoriteStatus)")
-        if favoriteStatus == false{
+        TwitterClient.sharedInstance.favTweet(Int(tweetID), params: nil, completion: {(error) -> () in
             
-            favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! + 1)"
-            favoriteStatus = true
-            self.favoriteButton.selected = true
-        }
-        else {
             
-            favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! - 1)"
-            favoriteStatus = false
-            self.favoriteButton.selected = false
-    }
+            if (self.favoriteButton.currentImage == UIImage(named: "like-action") ) {
+                self.favoriteCountLabel.text = String(self.tweet.favoritesCount! + 1)
+                self.favoriteButton.setImage(UIImage(named: "like-action-on"), forState: .Normal)
+                
+            }else{
+                
+                self.favoriteCountLabel.text = String(self.tweet.favoritesCount!)
+                self.favoriteButton.setImage(UIImage(named: "like-action"), forState: .Normal )
+            }
+            
+        })
     }
 
 }

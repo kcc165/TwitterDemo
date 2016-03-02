@@ -18,7 +18,20 @@ class TweetDetailViewController: UIViewController {
     
     @IBOutlet weak var tweetLabel: UILabel!
     
+    @IBOutlet weak var retweetButton: UIButton!
     
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    
+    
+    var favoriteStatus: Bool = false
+    var retweetStatus: Bool = false
+    
+    
+    var tweetID: Int = 0
     
     var tweet: Tweet!
     
@@ -30,6 +43,9 @@ class TweetDetailViewController: UIViewController {
         nameLabel.text = tweet?.user!.name
         thumbImageView.setImageWithURL(NSURL(string: tweet.user!.profileUrlString!)!)
         tweetLabel.text = tweet.text as! String
+        retweetCountLabel.text = "\(tweet.retweetCount!)"
+        favoriteCountLabel.text = "\(tweet.favoritesCount!)"
+        tweetID = (tweet.tweetID as? Int)!
         
         
       
@@ -40,6 +56,41 @@ class TweetDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweet(Int(tweetID), params: nil, completion: {(error) -> () in
+            
+            if (self.retweetButton.currentImage == UIImage(named: "retweet-action") ) {
+                self.retweetCountLabel.text = String(self.tweet.retweetCount! + 1)
+                self.retweetButton.setImage(UIImage(named: "retweet-action-on"), forState: .Normal)
+                
+            }else{
+                
+                self.retweetCountLabel.text = String(self.tweet.retweetCount!)
+                self.retweetButton.setImage(UIImage(named: "retweet-action"), forState: .Normal )
+            }
+        
+            
+            
+        })
+        
+    }
+    @IBAction func onFavorite(sender: AnyObject) {
+        TwitterClient.sharedInstance.favTweet(Int(tweetID), params: nil, completion: {(error) -> () in
+            
+            
+            if (self.favoriteButton.currentImage == UIImage(named: "like-action") ) {
+                self.favoriteCountLabel.text = String(self.tweet.favoritesCount! + 1)
+                self.favoriteButton.setImage(UIImage(named: "like-action-on"), forState: .Normal)
+                
+            }else{
+                
+                self.favoriteCountLabel.text = String(self.tweet.favoritesCount!)
+                self.favoriteButton.setImage(UIImage(named: "like-action"), forState: .Normal )
+            }
+            
+        })
     }
     
 

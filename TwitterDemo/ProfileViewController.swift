@@ -10,10 +10,19 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var pNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var pImageView: UIImageView!
+    
+    
     var tweet: Tweet!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pNameLabel.text = tweet.user?.name
+        
 
         // Do any additional setup after loading the view.
     }
