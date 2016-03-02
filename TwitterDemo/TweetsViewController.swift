@@ -69,7 +69,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             destinationViewController.tweet = tweet
         }
         if segue.identifier == "UserProfileView"{
-            let cell = sender!.superview!!.superview as! TweetCell
+            //let cell = sender!.superview!!.superview as! TweetCell
+            //let tweet = cell.tweet
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! TweetCell
             let tweet = cell.tweet
             let destinationViewController = segue.destinationViewController as! ProfileViewController
             destinationViewController.tweet = tweet
