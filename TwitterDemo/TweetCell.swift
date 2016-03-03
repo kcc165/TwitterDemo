@@ -42,8 +42,6 @@ class TweetCell: UITableViewCell {
             userNameLabel.text = "@\(tweet.user!.screenname!)"
             tweetTextLabel.text = tweet.text as? String
             timeStampLabel.text = "\(tweet.timestamp!)"
-            retweetCountLabel.text = "\(tweet.retweetCount!)"
-            favoriteCountLabel.text = "\(tweet.favoritesCount!)"
             tweetID = (tweet.tweetID as? Int)!
             
             

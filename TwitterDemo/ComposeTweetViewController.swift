@@ -16,12 +16,17 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var characterCountLabel: UILabel!
     
+    var tweet: Tweet!
+    var nameInfo: String?
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
         self.tweetTextView.delegate = self
+        //nameInfo = "@\(tweet.user!.screenname!)"
         
         tweetTextView.layer.borderWidth = 1
         tweetTextView.layer.cornerRadius = 8
