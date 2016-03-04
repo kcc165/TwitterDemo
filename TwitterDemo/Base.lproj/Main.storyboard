@@ -134,7 +134,7 @@
                                                     <rect key="frame" x="195" y="66" width="38" height="24"/>
                                                     <state key="normal" title="Button" image="reply-action_0"/>
                                                     <connections>
-                                                        <segue destination="W0I-VK-9gM" kind="show" id="vkG-gK-YZe"/>
+                                                        <segue destination="W0I-VK-9gM" kind="show" identifier="ReplyPush" id="RpV-MF-giq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -194,9 +194,9 @@
                                 <action selector="onLogoutButton:" destination="d6b-dn-Gh9" id="PWj-e8-KbM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="0Ii-hG-hAz">
+                        <barButtonItem key="rightBarButtonItem" title="Compose" id="0Ii-hG-hAz">
                             <connections>
-                                <segue destination="W0I-VK-9gM" kind="show" identifier="ReplyPush" id="5x2-kg-JhZ"/>
+                                <segue destination="W0I-VK-9gM" kind="show" identifier="ComposePush" id="BV4-4q-lxp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -444,9 +444,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwi-h8-7yc">
                                 <rect key="frame" x="240" y="206" width="46" height="24"/>
                                 <state key="normal" title="Button" image="reply-action_0"/>
-                                <connections>
-                                    <segue destination="W0I-VK-9gM" kind="show" id="Y5f-kZ-jPc"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -516,6 +513,6 @@
         <image name="retweet-action" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5x2-kg-JhZ"/>
+        <segue reference="RpV-MF-giq"/>
     </inferredMetricsTieBreakers>
 </document>
